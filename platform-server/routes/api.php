@@ -8,6 +8,7 @@ Route::group(['prefix' => 'guest'], function () {
 
     Route::get("unauthorized", [AuthController::class, "unauthorized"])->name("unauthorized");
     Route::post('register', [AuthController::class, 'register']);
+
     Route::post('login', [AuthController::class, 'login']);
 });
 
