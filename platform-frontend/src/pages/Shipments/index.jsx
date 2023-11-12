@@ -21,7 +21,7 @@ function Shipments() {
 
     return (
         <div className='home-page-container'>
-            <Cards shipments={shipments} setShipments={setShipments} fetchData={fetchData} />
+            <Cards shipments={shipments} fetchData={fetchData} />
         </div>
     );
 }
