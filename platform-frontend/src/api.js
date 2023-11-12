@@ -22,3 +22,22 @@ export const loginUser = async (email, password) => {
         throw error;
     }
 };
+
+export const RegisterUser = async (name, email, password) => {
+    try {
+        const response = await sendRequest({
+            route: "/guest/register",
+            method: requestMethods.POST,
+            body: {
+                name,
+                email,
+                password,
+            },
+        });
+        console.log(response);
+
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
