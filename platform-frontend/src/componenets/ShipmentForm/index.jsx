@@ -19,7 +19,7 @@ function ShipmentForm() {
         }
 
         try {
-            createShipment(waybill, address, name, number);
+            createShipment(waybill, address, name, number, image);
 
             setName("");
             setImage(null);
@@ -73,7 +73,7 @@ function ShipmentForm() {
 
                 <div className="label-input">
                     <label htmlFor="image">Image </label>
-                    <input required id="image" name="image" type="file" onChange={handleImageChange} />
+                    <input className='custom-input' required id="image" name="image" type="file" onChange={handleImageChange} />
                 </div>
 
                 {error && <p className="error-message">{error}</p>}

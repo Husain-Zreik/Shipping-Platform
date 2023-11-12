@@ -42,7 +42,7 @@ export const RegisterUser = async (name, email, password) => {
     }
 };
 
-export const createShipment = async (waybill, address, name, phone) => {
+export const createShipment = async (waybill, address, name, phone, image) => {
     try {
         const response = await sendRequest({
             route: "/user/shipments/create",
@@ -52,6 +52,7 @@ export const createShipment = async (waybill, address, name, phone) => {
                 name,
                 address,
                 phone,
+                image
             }
         });
         console.log(response)
