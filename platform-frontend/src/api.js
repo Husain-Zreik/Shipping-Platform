@@ -62,3 +62,17 @@ export const createShipment = async (waybill, address, name, number, image) => {
         throw error;
     }
 };
+
+export const deleteShipment = async (id) => {
+    try {
+        const response = await sendRequest({
+            route: `/user/shipments/${id}`,
+            method: requestMethods.DELETE,
+        });
+        console.log(response)
+
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
