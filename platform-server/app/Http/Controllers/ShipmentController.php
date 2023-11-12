@@ -61,15 +61,42 @@ class ShipmentController extends Controller
         try {
             $shipment = Shipment::findOrFail($id);
 
-            // Delete the image file
             Storage::disk('public')->delete($shipment->image_path);
 
-            // Delete the shipment
             $shipment->delete();
 
             return response()->json([
                 'status' => 'success',
                 'message' => 'Shipment deleted successfully',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while processing the request.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    public function getAllShipments()
+    {
+        try {
+            $userShipments = Auth::user()->shipments;
+
+            $responseData = $userShipments->map(function ($shipment) {
+                return [
+                    'id' => $shipment->id,
+                    'waybill' => $shipment->waybill,
+                    'name' => $shipment->name,
+                    'address' => $shipment->address,
+                    'number' => $shipment->phone,
+                    'image_url' => Storage::url($shipment->image_path),
+                ];
+            });
+
+            return response()->json([
+                'status' => 'success',
+                'shipments' => $responseData,
             ]);
         } catch (\Exception $e) {
             return response()->json([

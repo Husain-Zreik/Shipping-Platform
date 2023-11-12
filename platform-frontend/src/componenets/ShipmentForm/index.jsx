@@ -22,6 +22,7 @@ function ShipmentForm() {
             createShipment(waybill, address, name, number, image);
 
             setName("");
+            setError("");
             setImage(null);
             setNumber("");
             setAddress("");
