@@ -63,6 +63,26 @@ export const createShipment = async (waybill, address, name, number, image) => {
     }
 };
 
+export const updateShipment = async (id, waybill = null, address = null, name = null, number = null) => {
+    try {
+        const response = await sendRequest({
+            route: `/user/shipments/${id}`,
+            method: requestMethods.PUT,
+            body: {
+                waybill,
+                name,
+                address,
+                number,
+            }
+        });
+        console.log(response)
+
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
+
 export const deleteShipment = async (id) => {
     try {
         const response = await sendRequest({
