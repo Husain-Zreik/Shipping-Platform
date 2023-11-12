@@ -41,3 +41,23 @@ export const RegisterUser = async (name, email, password) => {
         throw error;
     }
 };
+
+export const createShipment = async (waybill, address, name, phone) => {
+    try {
+        const response = await sendRequest({
+            route: "/user/shipments/create",
+            method: requestMethods.POST,
+            body: {
+                waybill,
+                name,
+                address,
+                phone,
+            }
+        });
+        console.log(response)
+
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};

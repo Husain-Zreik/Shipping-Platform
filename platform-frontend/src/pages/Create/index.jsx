@@ -1,12 +1,12 @@
+import ShipmentForm from '../../componenets/ShipmentForm';
 import React from 'react'
-import RecipeForm from '../../components/RecipeForm';
 import './style.css';
 
 function Create() {
 
     return (
         <div className='create-page-container'>
-            <RecipeForm/>
+            <ShipmentForm />
         </div>
     )
 }
