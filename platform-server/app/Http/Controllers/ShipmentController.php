@@ -106,4 +106,44 @@ class ShipmentController extends Controller
             ], 500);
         }
     }
+
+    public function updateShipment(Request $request, $id)
+    {
+        try {
+            $shipment = Shipment::findOrFail($id);
+
+            if (Auth::user()->id !== $shipment->user_id) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Unauthorized to update this shipment.',
+                ], 403);
+            }
+
+            $request->validate([
+                'waybill' => 'required|string',
+                'name' => 'required|string',
+                'address' => 'required|string',
+                'number' => 'required|string',
+            ]);
+
+            $shipment->update([
+                'waybill' => $request->waybill,
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->number,
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Shipment updated successfully',
+                'shipment' => $shipment,
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while processing the request.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

@@ -15,6 +15,7 @@ Route::group(['prefix' => 'guest'], function () {
 Route::group(['prefix' => 'user', 'middleware' => 'auth:api'], function () {
 
     Route::get("/shipments", [ShipmentController::class, "getAllShipments"]);
+    Route::put("/shipments/{id}", [ShipmentController::class, "updateShipment"]);
     Route::post("/shipments/create", [ShipmentController::class, "createShipment"]);
     Route::delete("/shipments/{id}", [ShipmentController::class, "deleteShipment"]);
     Route::post("logout", [AuthController::class, "logout"]);
