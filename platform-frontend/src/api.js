@@ -96,3 +96,17 @@ export const deleteShipment = async (id) => {
         throw error;
     }
 };
+
+export const getShipment = async () => {
+    try {
+        const response = await sendRequest({
+            route: "/user/shipments",
+            method: requestMethods.GET,
+        });
+        console.log(response)
+
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
