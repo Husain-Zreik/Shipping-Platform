@@ -54,4 +54,29 @@ class ShipmentController extends Controller
             ], 500);
         }
     }
+
+
+    public function deleteShipment($id)
+    {
+        try {
+            $shipment = Shipment::findOrFail($id);
+
+            // Delete the image file
+            Storage::disk('public')->delete($shipment->image_path);
+
+            // Delete the shipment
+            $shipment->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Shipment deleted successfully',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while processing the request.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }
