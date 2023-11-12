@@ -5,6 +5,13 @@ function Cards({ shipments, fetchData }) {
     const [updateFormVisible, setUpdateFormVisible] = useState([]);
     const [updateFormData, setUpdateFormData] = useState([]);
 
+    if (!shipments) {
+        return <p className='empty-state'>Loading Shipments ...</p>;
+    } else if (shipments.length === 0) {
+        return <p className='empty-state'>No Shipments.</p>;
+
+    }
+
     if (updateFormVisible.length !== shipments.length) {
         setUpdateFormVisible(Array(shipments.length).fill(false));
         setUpdateFormData(Array(shipments.length).fill({
@@ -70,25 +77,17 @@ function Cards({ shipments, fetchData }) {
 
                     {updateFormVisible[index] ? (
                         <form className='update-form' onSubmit={() => handleUpdate(shipment.id, index)}>
-                            <label>
-                                Name:
-                                <input type='text' name='name' value={updateFormData[index].name} onChange={(e) => handleInputChange(e, index)} />
-                            </label>
-                            <label>
-                                Phone:
-                                <input type='text' name='number' value={updateFormData[index].number} onChange={(e) => handleInputChange(e, index)} />
-                            </label>
-                            <label>
-                                Address:
-                                <input type='text' name='address' value={updateFormData[index].address} onChange={(e) => handleInputChange(e, index)} />
-                            </label>
-                            <label>
-                                Waybill:
-                                <input type='text' name='waybill' value={updateFormData[index].waybill} onChange={(e) => handleInputChange(e, index)} />
-                            </label>
+                            <label>Name:</label>
+                            <input type='text' name='name' value={updateFormData[index].name} onChange={(e) => handleInputChange(e, index)} />
+                            <label>Phone:</label>
+                            <input type='text' name='number' value={updateFormData[index].number} onChange={(e) => handleInputChange(e, index)} />
+                            <label>Address:</label>
+                            <input type='text' name='address' value={updateFormData[index].address} onChange={(e) => handleInputChange(e, index)} />
+                            <label>Waybill:</label>
+                            <input type='text' name='waybill' value={updateFormData[index].waybill} onChange={(e) => handleInputChange(e, index)} />
                             <div className='button-container'>
                                 <button type='submit'>Save Changes</button>
-                                <button type='button' onClick={() => toggleUpdateForm(index)}>Cancel</button>
+                                <button className='delete-btn' type='button' onClick={() => toggleUpdateForm(index)}>Cancel</button>
                             </div>
                         </form>
                     ) : (

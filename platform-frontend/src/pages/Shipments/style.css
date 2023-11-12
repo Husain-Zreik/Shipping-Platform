@@ -39,14 +39,9 @@
 .shipment-img {
     border-radius: 0.4em;
     width: 300px;
-    height: 200px;
+    height: 300px;
+    object-fit: cover;
 }
-
-/* .shipment-name {
-    margin-top: 5px;
-    font-size: 1.2em;
-    font-weight: 500;
-} */
 
 .shipment-name,
 .shipment-address,
@@ -71,15 +66,6 @@ button {
     border-radius: 4px;
     font-size: 12px;
     transition: background-color 0.3s;
-}
-
-.delete-btn {
-    background-color: #e01717;
-    margin-left: 5px;
-}
-
-.delete-btn:hover {
-    background-color: #b92929;
 }
 
 button:hover {
@@ -120,4 +106,13 @@ button:hover {
 
 .update-form button:hover {
     background-color: #27ae60;
+}
+
+.delete-btn {
+    background-color: #e01717;
+    margin-left: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #b92929;
 }
