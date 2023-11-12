@@ -17,7 +17,6 @@ class ShipmentController extends Controller
                 'name' => 'required|string',
                 'address' => 'required|string',
                 'number' => 'required|string',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,string|max:2048',
             ]);
 
             $base64Image = $request->input('image');
@@ -30,11 +29,11 @@ class ShipmentController extends Controller
             $user = Auth::user();
 
             $shipment = new Shipment([
-                'user_id' => $user->id,
+                'name' => $request->name,
+                'address' => $request->address,
+                'phone' => $request->number,
                 'waybill' => $request->waybill,
-                'customer_name' => $request->name,
-                'customer_address' => $request->address,
-                'customer_phone' => $request->number,
+                'user_id' => $user->id,
                 'image_path' => $imagePath,
             ]);
             $shipment->save();

@@ -11,7 +11,7 @@ class Shipment extends Model
 
     protected $table = 'shipments';
 
-    protected $fillable = ['waybill', 'customer_name', 'customer_address', 'customer_phone'];
+    protected $fillable = ['waybill', 'name', 'address', 'phone', 'image_path', 'user_id'];
 
     public function user()
     {

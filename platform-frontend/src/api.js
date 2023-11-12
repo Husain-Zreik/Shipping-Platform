@@ -45,7 +45,7 @@ export const RegisterUser = async (name, email, password) => {
 export const createShipment = async (waybill, address, name, number, image) => {
     try {
         const response = await sendRequest({
-            route: "/user/shipments/create",
+            route: "/user/shipment/create",
             method: requestMethods.POST,
             body: {
                 waybill,
