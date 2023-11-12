@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../../api";
-import "./style.css";
 
 function Login({onToggle}) {
   const navigation = useNavigate();
@@ -51,7 +50,6 @@ function Login({onToggle}) {
 
         {error && <p className="error-message">{error}</p>}
 
-
         <button className='black-button' type="submit" onClick={handleLogin}>Login</button>
       </form>
 
@@ -59,7 +57,7 @@ function Login({onToggle}) {
         <p>Don't have an account?</p>
         <span className='create-toggle' onClick={() => onToggle(false)}>Register</span>
       </div>
-      
+
     </div>
   )
 }

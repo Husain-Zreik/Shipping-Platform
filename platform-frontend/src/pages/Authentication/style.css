@@ -131,3 +131,9 @@
 .create-toggle:hover {
   color: rgb(0, 0, 0);
 }
+.login-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
