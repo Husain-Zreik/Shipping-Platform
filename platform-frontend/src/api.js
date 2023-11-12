@@ -1,6 +1,6 @@
 import { sendRequest } from "./core/config/request";
 import { localStorageAction } from "./core/config/localstorage";
-import { requestMethods } from "../../../core/enums/requestMethods";
+import { requestMethods } from "./core/enums/requestMethods";
 
 export const loginUser = async (email, password) => {
     try {
@@ -12,7 +12,7 @@ export const loginUser = async (email, password) => {
                 password,
             }
         });
-        // console.log(response)
+        console.log(response)
 
         localStorageAction("access_token", response.user.token);
         localStorageAction("user_data", response.user);

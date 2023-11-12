@@ -97,6 +97,7 @@
 }
 
 .black-button {
+  margin-top: 1em;
   border: none;
   font-size: 1.2em;
   font-weight: 700;
@@ -120,14 +121,13 @@
 
 .create-toggle {
   text-decoration: none;
-  color: rgb(0, 0, 0);
   font-weight: 700;
   font-size: 1.2em;
   margin: 0.2em 0;
   cursor: pointer;
+  color: rgb(82, 82, 82);
 }
 
 .create-toggle:hover {
-  font-weight: 800;
-  color: rgb(64, 64, 64);
+  color: rgb(0, 0, 0);
 }
