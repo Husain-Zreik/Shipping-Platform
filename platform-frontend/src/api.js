@@ -97,13 +97,14 @@ export const deleteShipment = async (id) => {
     }
 };
 
-export const getShipment = async () => {
+export const getShipments = async () => {
     try {
         const response = await sendRequest({
             route: "/user/shipments",
             method: requestMethods.GET,
         });
         console.log(response)
+        console.log(response.shipments)
 
         return response;
     } catch (error) {
