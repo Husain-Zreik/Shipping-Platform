@@ -20,7 +20,9 @@ function Login({ onToggle }) {
 
     try {
       loginUser(email, password);
-      navigation("/user");
+      setTimeout(() => {
+        navigation("/user");
+      }, 1000);
     } catch (error) {
       console.error("Login failed:", error);
     }

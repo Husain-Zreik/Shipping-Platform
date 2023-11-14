@@ -8,8 +8,7 @@ function Cards({ shipments, fetchData }) {
     if (!shipments) {
         return <p className='empty-state'>Loading Shipments ...</p>;
     } else if (shipments.length === 0) {
-        return <p className='empty-state'>No Shipments.</p>;
-
+        return <p className='empty-state'>Loading Shipments.</p>;
     }
 
     if (updateFormVisible.length !== shipments.length) {
